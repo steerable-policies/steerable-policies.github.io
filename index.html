@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Steerable Vision-Language-Action Policies for Embodied Reasoning and Hierarchical Control</title>
+  <meta name="description"
+    content="Steerable Vision-Language-Action Policies for Embodied Reasoning and Hierarchical Control">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title"
+    content="Steerable Vision-Language-Action Policies for Embodied Reasoning and Hierarchical Control">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name"
+    content="Steerable Vision-Language-Action Policies for Embodied Reasoning and Hierarchical Control">
+  <meta property="og:image" content="static/figures_png/Teaser.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1082" />
+  <meta property="og:image:height" content="639" />
+  <meta property="og:url" content="https://steerable-policies.github.io" />
+  <meta property="og:description" content="Project page for Steerable Vision-Language-Action Policies" />
+  <meta name="twitter:title"
+    content="Steerable Vision-Language-Action Policies for Embodied Reasoning and Hierarchical Control" />
+  <meta name="twitter:description" content="Project page for Steerable Vision-Language-Action Policies" />
+  <meta name="twitter:image" content="static/figures_png/Teaser.png" />
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PFJ2DFW');</script>
+  <!-- End Google Tag Manager -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/vlmaps_icon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFJ2DFW" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Steerable Vision-Language-Action Policies
+            </h1>
+            <h2 class="title is-2 publication-subtitle">
+              for Embodied Reasoning and Hierarchical Control
+            </h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://verityw.github.io/">William Chen</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://jagdeepsb.github.io/">Jagdeep Bhatia</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://catglossop.github.io/">Catherine Glossop</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="">Nikhil Mathihalli</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://riadoshi.github.io/">Ria Doshi</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://www.linkedin.com/in/andyytang/">Andy Tang</a><sup>2</sup>,</span>
+              <br />
+              <span class="author-block"><a href="https://dannydriess.github.io/">Danny Driess</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://kpertsch.github.io/">Karl Pertsch</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UC Berkeley,</span>
+              <span class="author-block"><sup>2</sup>Stanford University</span>
+              <span class="author-block"><sup>3</sup>Physical Intelligence</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="TODO: arxiv" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/steerable-policies/steerable-policies-bridge" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Model Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf_icon.svg" />
+                    </span>
+                    <span>Model</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/Embodied-CoT/steering_features_bridge" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf_icon.svg" />
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay controls muted loop playsinline height="100%">
+          <source src="static/videos/teaser_vid.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          Steerable Policies can flexibly follow diverse commands, allowing them to better interface with VLMs to
+          transfer foundation model capabilities to the real world.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Pretrained vision-language models (VLMs) can make semantic and visual inferences across diverse settings,
+              providing valuable common-sense priors for robotic control. However, effectively grounding this knowledge
+              in robot behaviors remains an open challenge. Prior methods often employ a hierarchical approach where
+              VLMs reason over high-level commands to be executed by separate low-level policies, e.g.,
+              vision-language-action models (VLAs). The interface between VLMs and VLAs is usually natural language task
+              instructions, which fundamentally limits how much VLM reasoning can steer low-level behavior. We thus
+              introduce Steerable Policies: VLAs trained on rich synthetic commands at various levels of abstraction,
+              like subtasks, motions, and grounded pixel coordinates. By improving low-level controllability, Steerable
+              Policies can unlock pretrained knowledge in VLMs, enabling improved task generalization. We demonstrate
+              this benefit by controlling our Steerable Policies with both a learned high-level embodied reasoner and an
+              off-the-shelf VLM prompted to reason over command abstractions via in-context learning. Across extensive
+              real-world manipulation experiments, these two novel methods outperform prior embodied reasoning VLAs and
+              VLM-based hierarchical baselines, including on challenging generalization and long-horizon tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+
+          <!-- ===================== -->
+          <!-- Steerable Policies -->
+          <!-- ===================== -->
+          <h2 class="title is-3">Steerable Policies</h2>
+          <div class="content has-text-justified has-text-centered">
+            <img src="static/figures_png/Teaser.png" />
+            <p style="text-align: center;"><small>Our Steerable Policies are vision-language-action models trained on
+                diverse and detailed steering commands</small></p>
+
+            <p>
+              We introduce <b>Steerable Policies</b>, a new class of vision-language-action models (VLAs) trained on a
+              rich variety of synthetic steering commands, including high-level task descriptions, low-level motion
+              descriptions, and pixel-level grounding. By improving low-level controllability, Steerable
+              Policies can better interface with pretrained VLMs to transfer their powerful physical reasoning,
+              common-sense inference, and in-context learning capabilities to real-world robotic control.
+            </p>
+
+            <!-- <img src="static/figures_png/HierarchicalInferenceLoop.png" />
+            <p style="text-align: center;"><small>Hierarchical inference loop illustrating how Steerable Policies are commanded by pretrained VLMs.</small></p>
+             -->
+            <p>
+              This transfer is achieved via <b>hierarchical control</b> methods, wherein a high-level reasoning VLM
+              issues commands at varying levels of abstraction to steer the low-level behavior of Steerable Policies. We
+              explore two such methods: (1) a learned high-level <b>embodied reasoner</b> that is trained to issue diverse
+              steering commands to control Steerable Policies, and (2) an off-the-shelf VLM prompted to reason over
+              command abstractions via <b>in-context learning</b>.
+            </p>
+
+            <!-- Steering Commands -->
+            <h3 class="title is-4">Steering Commands</h3>
+
+            <img src="static/appendix_figs_png/ExampleSteeringCommands.png" />
+            <p style="text-align: center;"><small>Illustrative examples of steering command styles used to train
+                Steerable Policies.</small></p>
+
+            <p>
+              Standard VLAs are trained on "task-level" commands, i.e., high-level natural language descriptions of the
+              task to be performed. However, these commands are often too <a
+                href="https://arxiv.org/abs/2601.03136">formulaic and vague</a> to induce the full range of physical
+              skills necessary for solving novel manipulation tasks.
+            </p>
+
+            <p>
+              We thus train our policy on <b>steering commands</b>: a diverse set of instructions spanning many styles
+              and levels of abstraction. Beyond standard task-level commands, we also include semantic subtasks (e.g.,
+              "reach for the carrot") and atomic motions ("move left and grasp"), as well as commands that reference
+              grounded pixel coordinates, such as pointing ("open gripper above the container at [x, y]") and gripper
+              traces ("move along [x<sub>1</sub>, y<sub>1</sub>], [x<sub>2</sub>, y<sub>2</sub>], ..."). Finally, we
+              include hybrids of these styles ("move left from [x<sub>1</sub>, y<sub>1</sub>] to [x<sub>2</sub>,
+              y<sub>2</sub>] to grasp the carrot").
+            </p>
+
+
+            <!-- Generating Data -->
+            <h3 class="title is-4">Generating Data</h3>
+
+
+            <img src="static/figures_png/CommandPipeline.png" />
+            <p style="text-align: center;"><small>We use foundation models to automatically parse robot demonstrations
+                into segments that are labeled with diverse steering commands.</small></p>
+            <p>
+              To train Steerable Policies, we need a dataset of steering commands. We acquire this by automatically
+              attaching synthetic language labels to existing robot trajectories using a multi-stage pipeline. We
+              leverage various foundation models to extract relevant embodied features, then query an API-based VLM (Gemini) to
+              compile them into commands of all our steering styles.
+            </p>
+
+
+          </div>
+
+          <!-- ===================== -->
+          <!-- Hierarchical Control Methods -->
+          <!-- ===================== -->
+          <h2 class="title is-3">Hierarchical Control Experiments</h2>
+          <div class="content has-text-justified has-text-centered">
+
+            <img src="static/figures_png/HighLevelInstantiations.png" />
+            <p style="text-align: center;"><small>Our two instantiations of hierarchical control methods using Steerable Policies.</small></p>
+
+            <p>
+              We study two ways in which Steerable Policies allow better application of VLM capabilities to real-world manipulation. We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate a Steerable Policy</a> by adapting the <a href="https://openvla.github.io/">OpenVLA</a> codebase, and train it on the <a href="https://rail-berkeley.github.io/bridgedata/">Bridge WidowX dataset</a>.
+            </p>
+
+            <h3 class="title is-4">Embodied Reasoning</h3>
+
+            <div class="content has-text-justified">
+                  <div class="columns is-vcentered interpolation-panel">
+                    <div class="column  has-text-centered">
+                      <video autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/put_the_carrot_in_the_pot.mp4" type="video/mp4">
+                      </video>
+                      <p>"Put the carrot in the pot"</p>
+                    </div>
+
+                    <div class="column  has-text-centered">
+                      <video autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/put_the_watermelon_on_the_towel.mp4" type="video/mp4">
+                      </video>
+                      <p>"Put the watermelon on the towel"</p>
+                    </div>
+                  </div>
+            </div>
+
+            <img src="static/figures_png/ReasonerResults.png" />
+            <p style="text-align: center;"><small>Controlling Steerable Policies with high-level embodied reasoning VLMs is an effective approach for generalizable control.</small></p>
+
+            <p>
+              We fine-tune a VLM into a <b>high-level embodied reasoner</b> that autoregressively generates a grounded rationale explaining what the robot should do, before picking a steering command to execute with the low-level VLA. We find that this approach outperforms equivalent standard VLAs, past embodied reasoning methods, and a hierarchical non-reasoning ablation.
+            </p>
+
+            <h3 class="title is-4">Robot In-context Learning</h3>
+
+            <div class="content has-text-justified">
+                  <div class="columns is-vcentered interpolation-panel">
+                    <div class="column  has-text-centered">
+                      <video autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/make_the_blue_block_the_only_object_on_the_plate.mp4" type="video/mp4">
+                      </video>
+                      <p>"Make the blue block the only object on the plate"</p>
+                    </div>
+
+                    <div class="column  has-text-centered">
+                      <video autoplay controls muted loop playsinline height="100%">
+                        <source src="static/videos/stack_the_pots_on_the_towel.mp4" type="video/mp4">
+                      </video>
+                      <p>"Stack the pots on the towel"</p>
+                    </div>
+                  </div>
+            </div>
+
+            <img src="static/figures_png/MultiAbstractionResults.png" />
+            <p style="text-align: center;"><small>Steerable Policies allow high-level VLMs to perform robot in-context learning on novel multi-step tasks.</small></p>
+
+            <p>
+              Steerable Policies also allow VLMs to leverage <b>in-context learning</b>, where the model reasons to select a steering command style, observes the resulting behavior, and iteratively refines its commands to adaptively improve on the task. This approach casts robot in-context learning as standard <i>vision-language</i> in-context learning, obviating the need for structured scene and action representations that prior robot in-context learning methods rely on.
+            </p>
+            <br>
+
+            <img src="static/figures_png/VLMExampleReasonings.png" />
+            <p style="text-align: center;"><small>Paraphrased examples of how in-context learning over steering commands allow VLMs to correct erroneous or stalling behaviors, apply fine-grained physical and semantic reasoning, and infer which command styles are most appropriate.</small></p>
+
+            <p>
+              As in-context learning is used to select the appropriate level of abstraction for steering the robot, this approach is uniquely enabled by our Steerable Policies, as past VLAs are only trained on one or two steering modalities. We find our approach outperforms a <a href="https://say-can.github.io/">SayCan-like</a> baseline (where the VLA is restricted to subtask-level commands), confirming the performance benefits of in-context learning over many prompting modalities.
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>@article{Chen26-steerable-policies,
+    title={Steerable Vision-Language-Action Policies for Embodied Reasoning and Hierarchical Control},
+    author={William Chen and Jagdeep Bhatia and Catherine Glossop and Nikhil Mathihalli and Ria Doshi and Andy Tang and Danny Driess and Karl Pertsch and Sergey Levine},
+    year={2026}
+} </code></pre>
+        </div>
+      </section>
+
+
+
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <a class="icon-link" href="TODO: Arxiv link">
+              <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link" href="" class="external-link" disabled>
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p> Website borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> under a <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                    International</a>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>
