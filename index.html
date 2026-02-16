@@ -33,18 +33,6 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-PFJ2DFW');</script>
-  <!-- End Google Tag Manager -->
-  <!-- <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script> -->
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -61,6 +49,125 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .video-toggle-wrapper {
+      position: relative;
+      /* anchor for absolute-positioned toggle */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* center videos and toggle horizontally */
+    }
+
+    .toggle-container {
+      position: absolute;
+      /* float relative to wrapper */
+      bottom: -10px;
+    }
+
+    .video-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-wrapper video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+
+
+    .toggle-container {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 1rem;
+      width: 350px;
+      /* total slider width, expand as needed */
+      max-width: 100%;
+    }
+
+    #video-toggle {
+      display: none;
+    }
+
+    .slider {
+      display: flex;
+      position: relative;
+      background: #ccc;
+      border-radius: 25px;
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+      padding: 5px;
+      /* extra space around capsule */
+    }
+
+    .slider::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: var(--capsule-left, 0);
+      width: var(--capsule-width, 0);
+      height: calc(100% - 10px);
+      /* capsule slightly smaller than slider height */
+      background: var(--capsule-color, #3273dc);
+      border-radius: 25px;
+      z-index: 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Toggle labels */
+    .toggle-label {
+      flex: 1;
+      text-align: center;
+      font-weight: 400;
+      /* default weight for inactive label */
+      position: relative;
+      z-index: 1;
+      padding: 8px 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.4s ease, font-weight 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Text colors and font-weight based on toggle state */
+    #video-toggle:checked+.slider .off {
+      color: rgb(100, 100, 100);
+      font-weight: 400;
+      /* inactive label stays normal */
+    }
+
+    #video-toggle:checked+.slider .on {
+      color: white;
+      font-weight: 600;
+      /* active label is bold */
+    }
+
+    #video-toggle:not(:checked)+.slider .off {
+      color: white;
+      font-weight: 600;
+      /* active label is bold */
+    }
+
+    #video-toggle:not(:checked)+.slider .on {
+      color: rgb(100, 100, 100);
+      font-weight: 400;
+      /* inactive label stays normal */
+    }
+
+
+    /* Optional: hover effects */
+    .slider:hover::after {
+      transform: scale(1.01);
+      /* subtle pop on hover */
+    }
+  </style>
+
 </head>
 
 <body>
@@ -86,10 +193,12 @@
               <span class="author-block">
                 <a href="https://verityw.github.io/">William Chen</a><sup>1</sup>,</span>
               <span class="author-block"><a href="https://jagdeepsb.github.io/">Jagdeep Bhatia</a><sup>1</sup>,</span>
-              <span class="author-block"><a href="https://catglossop.github.io/">Catherine Glossop</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://catglossop.github.io/">Catherine
+                  Glossop</a><sup>1</sup>,</span>
               <span class="author-block"><a href="">Nikhil Mathihalli</a><sup>1</sup>,</span>
               <span class="author-block"><a href="https://riadoshi.github.io/">Ria Doshi</a><sup>2</sup>,</span>
-              <span class="author-block"><a href="https://www.linkedin.com/in/andyytang/">Andy Tang</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://www.linkedin.com/in/andyytang/">Andy
+                  Tang</a><sup>2</sup>,</span>
               <br />
               <span class="author-block"><a href="https://dannydriess.github.io/">Danny Driess</a><sup>3</sup>,</span>
               <span class="author-block">
@@ -118,7 +227,8 @@
                 </span>
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="https://github.com/steerable-policies/steerable-policies-bridge" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/steerable-policies/steerable-policies-bridge"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -127,7 +237,8 @@
                 </span>
                 <!-- Model Link. -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <img src="static/images/hf_icon.svg" />
                     </span>
@@ -136,7 +247,8 @@
                 </span>
 
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/Embodied-CoT/steering_features_bridge" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://huggingface.co/datasets/Embodied-CoT/steering_features_bridge"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <img src="static/images/hf_icon.svg" />
                     </span>
@@ -152,19 +264,44 @@
     </div>
   </section>
 
-  <section class="hero teaser">
+  <div class="video-toggle-wrapper" style="text-align: center;">
     <div class="container is-max-desktop">
-      <div class="hero-body">
-        <video id="teaser" autoplay controls muted loop playsinline height="100%">
+      <!-- Video wrapper with stacked videos -->
+      <div class="video-wrapper">
+        <!-- Muted video -->
+        <video id="video-muted" autoplay muted loop playsinline controls>
           <source src="static/videos/teaser_vid.mp4" type="video/mp4">
         </video>
-        <h2 class="subtitle has-text-centered">
-          Steerable Policies can flexibly follow diverse commands, allowing them to better interface with VLMs to
-          transfer foundation model capabilities to the real world.
-        </h2>
+
+        <!-- Narrated video -->
+        <video id="video-narrated" autoplay playsinline controls style="display: none;">
+          <source src="static/videos/narrated_teaser_vid.mp4" type="video/mp4">
+        </video>
       </div>
+
+      <!-- Modern slider toggle -->
+      <div class="toggle-container">
+        <input type="checkbox" id="video-toggle">
+        <label for="video-toggle" class="slider">
+          <span class="toggle-label off">Preview (Muted)</span>
+          <span class="toggle-label on">Full (Narrated)</span>
+        </label>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        Steerable Policies can flexibly follow diverse commands, allowing them to better interface with VLMs to
+        transfer foundation model capabilities to the real world.
+      </h2>
+      
     </div>
-  </section>
+
+
+
+  </div>
+
+
+
+
+
 
   <section class="section">
     <div class="container is-max-desktop">
@@ -200,11 +337,6 @@
       <div class="columns is-centered">
         <div class="column is-full-width">
 
-          <!-- <h2 class="title is-3">Summary</h2>
-          <div class="content has-text-justified has-text-centered">
-            
-          </div> -->
-
           <!-- ===================== -->
           <!-- Steerable Policies -->
           <!-- ===================== -->
@@ -215,31 +347,21 @@
                 diverse and detailed steering commands</small></p>
 
             <ul>
-              <li>A core limitation of transfering foundation model capabilities to robotics is <b>limited low-level policy steerability</b>.</li>
-              <li>We thus introduce <b>Steerable Policies</b>: vision-language-action models (VLAs) trained on diverse <i>steering commands</i>.
-              <li>For training data, we use an <b>automated annotation pipeline</b> to label robot demos with synthetic steering commands.</li>
-              <li>We showcase two new <b>hierarchial control methods</b>, highlighting how steerability enables better use of VLM capabilities:</li>
+              <li>A core limitation of transfering foundation model capabilities to robotics is <b>limited low-level
+                  policy steerability</b>.</li>
+              <li>We thus introduce <b>Steerable Policies</b>: vision-language-action models (VLAs) trained on diverse
+                <i>steering commands</i>.
+              <li>For training data, we use an <b>automated annotation pipeline</b> to label robot demos with synthetic
+                steering commands.</li>
+              <li>We showcase two new <b>hierarchial control methods</b>, highlighting how steerability enables better
+                use of VLM capabilities:</li>
               <ul>
-                <li>Fine-tuning a VLM into an <b>embodied reasoner</b>, which produces chain-of-thought rationales for how to decompose tasks into appropriate steering commands.</li>
-                <li>Using an off-the-shelf VLM to perform <b>robot in-context learning</b> over steering abstractions, allowing it to adapt its commands based on past experience.</li>
+                <li>Fine-tuning a VLM into an <b>embodied reasoner</b>, which produces chain-of-thought rationales for
+                  how to decompose tasks into appropriate steering commands.</li>
+                <li>Using an off-the-shelf VLM to perform <b>robot in-context learning</b> over steering abstractions,
+                  allowing it to adapt its commands based on past experience.</li>
               </ul>
             </ul>
-
-            <!-- <p>
-              We introduce <b>Steerable Policies</b>, a new class of vision-language-action models (VLAs) trained on a
-              rich variety of synthetic steering commands, including high-level task descriptions, low-level motion
-              descriptions, and pixel-level grounding. By improving low-level controllability, Steerable
-              Policies can better interface with pretrained VLMs to transfer their powerful physical reasoning,
-              common-sense inference, and in-context learning capabilities to real-world robotic control.
-            </p>
-
-            <p>
-              This transfer is achieved via <b>hierarchical control</b> methods, wherein a high-level reasoning VLM
-              issues commands at varying levels of abstraction to steer the low-level behavior of Steerable Policies. We
-              explore two such methods: (1) a learned high-level <b>embodied reasoner</b> that is trained to issue diverse
-              steering commands to control Steerable Policies, and (2) an off-the-shelf VLM prompted to reason over
-              command abstractions via <b>in-context learning</b>.
-            </p> -->
 
             <!-- Steering Commands -->
             <h3 class="title is-4">Steering Commands</h3>
@@ -272,8 +394,10 @@
               <li><b>Semantic subtasks</b>, e.g., "reach for the carrot" and "grasp the container".</li>
               <li><b>Atomic motions</b>, e.g., "move left and grasp".</li>
               <li><b>Pointing</b>, e.g., "open gripper above the container at [x, y]").</li>
-              <li><b>Gripper traces</b>, e.g., "move along [x<sub>1</sub>, y<sub>1</sub>], [x<sub>2</sub>, y<sub>2</sub>], ...".</li>
-              <li><b>Hybrids of these styles</b>, e.g., "move left from [x<sub>1</sub>, y<sub>1</sub>] to [x<sub>2</sub>, y<sub>2</sub>] to grasp the carrot".</li>
+              <li><b>Gripper traces</b>, e.g., "move along [x<sub>1</sub>, y<sub>1</sub>], [x<sub>2</sub>,
+                y<sub>2</sub>], ...".</li>
+              <li><b>Hybrids of these styles</b>, e.g., "move left from [x<sub>1</sub>, y<sub>1</sub>] to
+                [x<sub>2</sub>, y<sub>2</sub>] to grasp the carrot".</li>
             </ul>
 
 
@@ -287,7 +411,8 @@
             <p>
               To train Steerable Policies, we need a dataset of steering commands. We acquire this by automatically
               attaching synthetic language labels to existing robot trajectories using a multi-stage pipeline. We
-              leverage various foundation models to extract relevant embodied features, then query an API-based VLM (<a href="https://gemini.google.com/app">Gemini</a>) to
+              leverage various foundation models to extract relevant embodied features, then query an API-based VLM (<a
+                href="https://gemini.google.com/app">Gemini</a>) to
               compile them into commands of all our steering styles.
             </p>
 
@@ -301,72 +426,92 @@
           <div class="content has-text-justified has-text-centered">
 
             <img src="static/figures_png/HighLevelInstantiations.png" />
-            <p style="text-align: center;"><small>Our two instantiations of hierarchical control methods using Steerable Policies.</small></p>
+            <p style="text-align: center;"><small>Our two instantiations of hierarchical control methods using Steerable
+                Policies.</small></p>
 
             <p>
-            We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate a Steerable Policy</a> by adapting the <a href="https://openvla.github.io/">OpenVLA</a> codebase, and train it on the <a href="https://rail-berkeley.github.io/bridgedata/">Bridge WidowX dataset</a>. Using this VLA, we study two ways in which Steerable Policies allow better application of VLM capabilities to real-world manipulation. 
+              We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate a
+                Steerable Policy</a> by adapting the <a href="https://openvla.github.io/">OpenVLA</a> codebase, and
+              train it on the <a href="https://rail-berkeley.github.io/bridgedata/">Bridge WidowX dataset</a>. Using
+              this VLA, we study two ways in which Steerable Policies allow better application of VLM capabilities to
+              real-world manipulation.
             </p>
 
             <h3 class="title is-4">Embodied Reasoning</h3>
 
             <div class="content has-text-justified">
-                  <div class="columns is-vcentered interpolation-panel">
-                    <div class="column  has-text-centered">
-                      <video autoplay controls muted loop playsinline height="100%">
-                        <source src="static/videos/put_the_carrot_in_the_pot.mp4" type="video/mp4">
-                      </video>
-                      <p>"Put the carrot in the pot"</p>
-                    </div>
+              <div class="columns is-vcentered interpolation-panel">
+                <div class="column  has-text-centered">
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="static/videos/put_the_carrot_in_the_pot.mp4" type="video/mp4">
+                  </video>
+                  <p>"Put the carrot in the pot"</p>
+                </div>
 
-                    <div class="column  has-text-centered">
-                      <video autoplay controls muted loop playsinline height="100%">
-                        <source src="static/videos/put_the_watermelon_on_the_towel.mp4" type="video/mp4">
-                      </video>
-                      <p>"Put the watermelon on the towel"</p>
-                    </div>
-                  </div>
+                <div class="column  has-text-centered">
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="static/videos/put_the_watermelon_on_the_towel.mp4" type="video/mp4">
+                  </video>
+                  <p>"Put the watermelon on the towel"</p>
+                </div>
+              </div>
             </div>
 
             <img src="static/figures_png/ReasonerResults.png" />
-            <p style="text-align: center;"><small>Controlling Steerable Policies with high-level embodied reasoning VLMs is an effective approach for generalizable control.</small></p>
+            <p style="text-align: center;"><small>Controlling Steerable Policies with high-level embodied reasoning VLMs
+                is an effective approach for generalizable control.</small></p>
 
             <p>
-              We fine-tune a VLM into a <b>high-level embodied reasoner</b> that autoregressively generates a grounded rationale explaining what the robot should do, before picking a steering command to execute with the low-level VLA. We find that this approach outperforms equivalent standard VLAs, past embodied reasoning methods, and a hierarchical non-reasoning ablation.
+              We fine-tune a VLM into a <b>high-level embodied reasoner</b> that autoregressively generates a grounded
+              rationale explaining what the robot should do, before picking a steering command to execute with the
+              low-level VLA. We find that this approach outperforms equivalent standard VLAs, past embodied reasoning
+              methods, and a hierarchical non-reasoning ablation.
             </p>
 
             <h3 class="title is-4">Robot In-context Learning</h3>
 
             <div class="content has-text-justified">
-                  <div class="columns is-vcentered interpolation-panel">
-                    <div class="column  has-text-centered">
-                      <video autoplay controls muted loop playsinline height="100%">
-                        <source src="static/videos/make_the_blue_block_the_only_object_on_the_plate.mp4" type="video/mp4">
-                      </video>
-                      <p>"Make the blue block the only object on the plate"</p>
-                    </div>
+              <div class="columns is-vcentered interpolation-panel">
+                <div class="column  has-text-centered">
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="static/videos/make_the_blue_block_the_only_object_on_the_plate.mp4" type="video/mp4">
+                  </video>
+                  <p>"Make the blue block the only object on the plate"</p>
+                </div>
 
-                    <div class="column  has-text-centered">
-                      <video autoplay controls muted loop playsinline height="100%">
-                        <source src="static/videos/stack_the_pots_on_the_towel.mp4" type="video/mp4">
-                      </video>
-                      <p>"Stack the pots on the towel"</p>
-                    </div>
-                  </div>
+                <div class="column  has-text-centered">
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="static/videos/stack_the_pots_on_the_towel.mp4" type="video/mp4">
+                  </video>
+                  <p>"Stack the pots on the towel"</p>
+                </div>
+              </div>
             </div>
 
             <img src="static/figures_png/MultiAbstractionResults.png" />
-            <p style="text-align: center;"><small>Steerable Policies allow high-level VLMs to perform robot in-context learning on novel multi-step tasks.</small></p>
+            <p style="text-align: center;"><small>Steerable Policies allow high-level VLMs to perform robot in-context
+                learning on novel multi-step tasks.</small></p>
 
             <p>
-              Steerable Policies also allow VLMs to leverage <b>in-context learning</b>, where the model reasons to select a steering command style, observes the resulting behavior, and iteratively refines its commands to adaptively improve on the task. This approach casts robot in-context learning as standard <i>vision-language</i> in-context learning, obviating the need for structured scene and action representations that prior robot in-context learning methods rely on.
+              Steerable Policies also allow VLMs to leverage <b>in-context learning</b>, where the model reasons to
+              select a steering command style, observes the resulting behavior, and iteratively refines its commands to
+              adaptively improve on the task. This approach casts robot in-context learning as standard
+              <i>vision-language</i> in-context learning, obviating the need for structured scene and action
+              representations that prior robot in-context learning methods rely on.
             </p>
             <br>
 
             <img src="static/figures_png/VLMExampleReasonings.png" />
-            <p style="text-align: center;"><small>Paraphrased examples of how in-context learning over steering commands allow VLMs to correct erroneous or stalling behaviors, apply fine-grained physical and semantic reasoning, and infer which command styles are most appropriate.</small></p>
+            <p style="text-align: center;"><small>Paraphrased examples of how in-context learning over steering commands
+                allow VLMs to correct erroneous or stalling behaviors, apply fine-grained physical and semantic
+                reasoning, and infer which command styles are most appropriate.</small></p>
 
             <p>
-              As in-context learning is used to select the appropriate level of abstraction for steering the robot, this approach is uniquely enabled by our Steerable Policies, as past VLAs are only trained on one or two steering modalities. We find our approach outperforms a <a href="https://say-can.github.io/">SayCan-like</a> baseline (where the VLA is restricted to subtask-level commands), confirming the performance benefits of in-context learning over many prompting modalities.
+              As in-context learning is used to select the appropriate level of abstraction for steering the robot, this
+              approach is uniquely enabled by our Steerable Policies, as past VLAs are only trained on one or two
+              steering modalities. We find our approach outperforms a <a
+                href="https://say-can.github.io/">SayCan-like</a> baseline (where the VLA is restricted to subtask-level
+              commands), confirming the performance benefits of in-context learning over many prompting modalities.
             </p>
 
           </div>
@@ -416,6 +561,56 @@
           </div>
         </div>
       </footer>
+
+      <script>
+        const toggle = document.getElementById("video-toggle");
+        const slider = document.querySelector(".slider");
+        const labels = slider.querySelectorAll(".toggle-label");
+        const videoMuted = document.getElementById("video-muted");
+        const videoNarrated = document.getElementById("video-narrated");
+
+        // Optional: define colors for each option
+        const colors = ["#3273dc", "#ff3860"]; // e.g., muted = blue, narrated = red
+
+        function updateCapsule() {
+          const activeIndex = toggle.checked ? 1 : 0;
+          const activeLabel = labels[activeIndex];
+
+          const leftOffset = activeLabel.offsetLeft;
+          const width = activeLabel.offsetWidth;
+
+          slider.style.setProperty("--capsule-left", leftOffset + "px");
+          slider.style.setProperty("--capsule-width", width + "px");
+          slider.style.setProperty("--capsule-color", colors[activeIndex]);
+        }
+
+        // Initial setup
+        updateCapsule();
+
+        // Toggle change
+        toggle.addEventListener("change", () => {
+          updateCapsule();
+
+          // Switch videos
+          if (toggle.checked) {
+            videoMuted.style.display = "none";
+            videoMuted.pause();
+            videoNarrated.style.display = "block";
+            videoNarrated.play();
+          } else {
+            videoNarrated.style.display = "none";
+            videoNarrated.pause();
+            videoMuted.style.display = "block";
+            videoMuted.play();
+          }
+        });
+
+        // Update on window resize
+        window.addEventListener("resize", updateCapsule);
+
+      </script>
+
+
 
 </body>
 
