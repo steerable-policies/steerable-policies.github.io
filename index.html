@@ -200,6 +200,11 @@
       <div class="columns is-centered">
         <div class="column is-full-width">
 
+          <!-- <h2 class="title is-3">Summary</h2>
+          <div class="content has-text-justified has-text-centered">
+            
+          </div> -->
+
           <!-- ===================== -->
           <!-- Steerable Policies -->
           <!-- ===================== -->
@@ -209,7 +214,18 @@
             <p style="text-align: center;"><small>Our Steerable Policies are vision-language-action models trained on
                 diverse and detailed steering commands</small></p>
 
-            <p>
+            <ul>
+              <li>A core limitation of transfering foundation model capabilities to robotics is <b>limited low-level policy steerability</b>.</li>
+              <li>We thus introduce <b>Steerable Policies</b>: vision-language-action models (VLAs) trained on diverse <i>steering commands</i>.
+              <li>For training data, we use an <b>automated annotation pipeline</b> to label robot demos with synthetic steering commands.</li>
+              <li>We showcase two new <b>hierarchial control methods</b>, highlighting how steerability enables better use of VLM capabilities:</li>
+              <ul>
+                <li>Fine-tuning a VLM into an <b>embodied reasoner</b>, which produces chain-of-thought rationales for how to decompose tasks into appropriate steering commands.</li>
+                <li>Using an off-the-shelf VLM to perform <b>robot in-context learning</b> over steering abstractions, allowing it to adapt its commands based on past experience.</li>
+              </ul>
+            </ul>
+
+            <!-- <p>
               We introduce <b>Steerable Policies</b>, a new class of vision-language-action models (VLAs) trained on a
               rich variety of synthetic steering commands, including high-level task descriptions, low-level motion
               descriptions, and pixel-level grounding. By improving low-level controllability, Steerable
@@ -217,16 +233,13 @@
               common-sense inference, and in-context learning capabilities to real-world robotic control.
             </p>
 
-            <!-- <img src="static/figures_png/HierarchicalInferenceLoop.png" />
-            <p style="text-align: center;"><small>Hierarchical inference loop illustrating how Steerable Policies are commanded by pretrained VLMs.</small></p>
-             -->
             <p>
               This transfer is achieved via <b>hierarchical control</b> methods, wherein a high-level reasoning VLM
               issues commands at varying levels of abstraction to steer the low-level behavior of Steerable Policies. We
               explore two such methods: (1) a learned high-level <b>embodied reasoner</b> that is trained to issue diverse
               steering commands to control Steerable Policies, and (2) an off-the-shelf VLM prompted to reason over
               command abstractions via <b>in-context learning</b>.
-            </p>
+            </p> -->
 
             <!-- Steering Commands -->
             <h3 class="title is-4">Steering Commands</h3>
@@ -242,7 +255,7 @@
               skills necessary for solving novel manipulation tasks.
             </p>
 
-            <p>
+            <!-- <p>
               We thus train our policy on <b>steering commands</b>: a diverse set of instructions spanning many styles
               and levels of abstraction. Beyond standard task-level commands, we also include semantic subtasks (e.g.,
               "reach for the carrot") and atomic motions ("move left and grasp"), as well as commands that reference
@@ -250,7 +263,18 @@
               traces ("move along [x<sub>1</sub>, y<sub>1</sub>], [x<sub>2</sub>, y<sub>2</sub>], ..."). Finally, we
               include hybrids of these styles ("move left from [x<sub>1</sub>, y<sub>1</sub>] to [x<sub>2</sub>,
               y<sub>2</sub>] to grasp the carrot").
+            </p> -->
+            <p>
+              We thus train our policy on <b>steering commands</b>: a diverse set of instructions spanning many styles
+              and levels of abstraction. Beyond standard task-level commands, we also include:
             </p>
+            <ul>
+              <li><b>Semantic subtasks</b>, e.g., "reach for the carrot" and "grasp the container".</li>
+              <li><b>Atomic motions</b>, e.g., "move left and grasp".</li>
+              <li><b>Pointing</b>, e.g., "open gripper above the container at [x, y]").</li>
+              <li><b>Gripper traces</b>, e.g., "move along [x<sub>1</sub>, y<sub>1</sub>], [x<sub>2</sub>, y<sub>2</sub>], ...".</li>
+              <li><b>Hybrids of these styles</b>, e.g., "move left from [x<sub>1</sub>, y<sub>1</sub>] to [x<sub>2</sub>, y<sub>2</sub>] to grasp the carrot".</li>
+            </ul>
 
 
             <!-- Generating Data -->
@@ -263,7 +287,7 @@
             <p>
               To train Steerable Policies, we need a dataset of steering commands. We acquire this by automatically
               attaching synthetic language labels to existing robot trajectories using a multi-stage pipeline. We
-              leverage various foundation models to extract relevant embodied features, then query an API-based VLM (Gemini) to
+              leverage various foundation models to extract relevant embodied features, then query an API-based VLM (<a href="https://gemini.google.com/app">Gemini</a>) to
               compile them into commands of all our steering styles.
             </p>
 
@@ -280,7 +304,7 @@
             <p style="text-align: center;"><small>Our two instantiations of hierarchical control methods using Steerable Policies.</small></p>
 
             <p>
-              We study two ways in which Steerable Policies allow better application of VLM capabilities to real-world manipulation. We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate a Steerable Policy</a> by adapting the <a href="https://openvla.github.io/">OpenVLA</a> codebase, and train it on the <a href="https://rail-berkeley.github.io/bridgedata/">Bridge WidowX dataset</a>.
+            We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate a Steerable Policy</a> by adapting the <a href="https://openvla.github.io/">OpenVLA</a> codebase, and train it on the <a href="https://rail-berkeley.github.io/bridgedata/">Bridge WidowX dataset</a>. Using this VLA, we study two ways in which Steerable Policies allow better application of VLM capabilities to real-world manipulation. 
             </p>
 
             <h3 class="title is-4">Embodied Reasoning</h3>
