@@ -350,9 +350,10 @@
               <li>A core limitation of transfering foundation model capabilities to robotics is <b>limited low-level
                   policy steerability</b>.</li>
               <li>We thus introduce <b>Steerable Policies</b>: vision-language-action models (VLAs) trained on diverse
-                <i>steering commands</i>.
+                <i>steering commands</i>.</li>
               <li>For training data, we use an <b>automated annotation pipeline</b> to label robot demos with synthetic
                 steering commands.</li>
+              <li>We instantiate two Steerable Policies based on the <b>OpenVLA</b> and <b>π<sub>0.5</sub></b> architectures.</li>
               <li>We showcase two new <b>hierarchial control methods</b>, highlighting how steerability enables better
                 use of VLM capabilities:</li>
               <ul>
@@ -426,12 +427,13 @@
           <div class="content has-text-justified has-text-centered">
 
             <img src="static/figures_png/HighLevelInstantiations.png" />
-            <p style="text-align: center;"><small>Our two instantiations of hierarchical control methods using Steerable
+            <p style="text-align: center;"><small>Our two hierarchical control methods using Steerable
                 Policies.</small></p>
 
             <p>
-              We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate a
-                Steerable Policy</a> by adapting the <a href="https://openvla.github.io/">OpenVLA</a> codebase, and
+              We <a href="https://huggingface.co/Embodied-CoT/steerable-policy-openvla-7b-bridge">instantiate two
+                Steerable Policies</a> by adapting both the <a href="https://openvla.github.io/">OpenVLA</a> and 
+                <a href="https://github.com/Physical-Intelligence/openpi">π<sub>0.5</sub> OpenPi</a> codebases, and
               train it on the <a href="https://rail-berkeley.github.io/bridgedata/">Bridge WidowX dataset</a>. Using
               this VLA, we study two ways in which Steerable Policies allow better application of VLM capabilities to
               real-world manipulation.
@@ -464,7 +466,8 @@
             <p>
               We fine-tune a VLM into a <b>high-level embodied reasoner</b> that autoregressively generates a grounded
               rationale explaining what the robot should do, before picking a steering command to execute with the
-              low-level VLA. We find that this approach outperforms equivalent standard VLAs, past embodied reasoning
+              low-level VLA. When controlling either the OpenVLA or π<sub>0.5</sub> Steerable Policy, 
+              we find that this approach outperforms equivalent standard VLAs, past embodied reasoning
               methods, and a hierarchical non-reasoning ablation.
             </p>
 
